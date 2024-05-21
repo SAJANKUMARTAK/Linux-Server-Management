@@ -42,6 +42,8 @@ bash
 # Restart httpd service
 sudo systemctl restart httpd
 
+# im using AWS so dont we need to managment firewalld, im aws we need to create Security Group with inbound or outbound rules and Allow http service or 80 port.
+
 # Checking Internally : 
 sudo curl www.sajan.shop.com
 
