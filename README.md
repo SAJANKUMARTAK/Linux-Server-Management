@@ -16,7 +16,7 @@ sudo cd /var/www/html/website
 # paste code inside document root ,im creating my own code named index.html
 sudo vim index.html
 <center><h1> Hello Guys im Sajan Kumar Tak</h1></center>
-<center><h2> This is my Apache(httpd) Webserver Working So Smoothly</h2></center>
+<center><h2> This is my HTTPD Webserver Working So Smoothly</h2></center>
 :wq!
 
 # Create a new configuration file for your virtual host
