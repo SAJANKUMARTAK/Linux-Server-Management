@@ -1,5 +1,5 @@
 # Linux-Server-Management ( Configure by Sajan Kumar Tak )
-# DNS,HTTPD,MARIADB,NFS,SAMBA,HAPROXY configuration
+# DNS,HTTPD,MARIADB,NFS,SAMBA,HAPROXY,Local Mailing configuration
 This repository contains documentation and configuration files for setting up various server services on CentOS machines. Whether you're a beginner or just looking for a reference, you'll find step-by-step guides and configuration examples here.
 
 ## Included Tasks
@@ -9,6 +9,7 @@ This repository contains documentation and configuration files for setting up va
 - **NFS Configuration**: Setting up Network File System (NFS) server and clients.
 - **Samba Configuration**: Configuring Samba for file sharing with Windows clients.
 - **HAProxy Configuration**: Configuring HAProxy for load balancing.
+- **Local MAIL SERVER**: Setting up Local Mailing Between USER on CentOS.
 - 
 ## Feedback
 If you have any feedback, questions, or suggestions, please feel free to open an issue or contact us.
