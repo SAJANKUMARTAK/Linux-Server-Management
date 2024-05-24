@@ -1,0 +1,58 @@
+#Lets Start Configure Custom DNS in RHEL
+#Packages : bind, bind-utils
+#Service: named
+#Port: 53/UDP service address
+#Domain Name: sajan.shop
+#Configuration: /etc/named.conf
+#Zone file: dnszone
+#Document Root (record intry ) : /var/named/sajanzonefile
+
+#Lets Start Configure Custom DNS in RHEL
+#Ip to domain name, Domain name to ip
+#Steps: 
+
+yum -y install bind, bind-utils
+systemctl start named
+systemctl enable named
+
+vim /etc/named.conf
+options {
+        directory "/var/named";
+        recursion no;
+};
+zone "sajan.shop" IN {
+        type master ;
+        file "sajanzonefile" ;
+};
+:wq!
+
+named-checkconf named.conf
+
+#ifam using hoslinger panel for my domain sajan.shop
+#maping a namesever with Ip to localdns zonefile ns records
+
+vim /var/named/sajanzonefile
+$TTL 1M
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+
+sajan.shop.      IN NS ns1.sajan.shop.
+sajan.shop.      IN NS ns2.sajan.shop.
+ns1              IN A 3.110.87.27
+ns2              IN A 3.110.87.27
+sajan.shop.      IN A 3.110.87.27
+www.             IN CNAME sajan.shop.
+:wq!
+chmod 640 sajanzonefile
+
+named-checkzone sajanzonefile
+
+systemctl restart named
+nslookup sajan.shop
+nslookup sajan.shop localhost
+
+
