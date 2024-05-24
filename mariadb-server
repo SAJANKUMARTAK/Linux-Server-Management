@@ -1,0 +1,42 @@
+#Sajan MariaDb Server Configuration Steps
+----------------------------------------------------------------------------
+#PackageName: mariadb-server
+#ServiceName: mariadb
+#By Default port: 3306
+#Configuration_Path : /etc/my.cnf
+#mysql_Document_path: /var/lib/mysql
+#Mariadb_Document_Path: /usr/share/doc/mariadb
+------------------Steps--------------------------------------------------------------
+yum -y install mariadb-server
+systemctl enable --now mariadb
+
+#for Securing Database
+mysql_secure_installation
+#Completeall_necessary_step ( related with this command)
+
+#login with root
+mysql -u root -p
+enter root password
+
+#database_creation
+create database data1;
+show database;
+
+SELECT User, Host FROM mysql.user; #list all database user; 
+
+#create a database user sajan with password and allow privileges (*means all privilege)
+create user 'sajan'@'localhost' identified by 'redhat'
+GRANT ALL PRIVILEGES ON *.* TO 'sajan'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+
+#Login with sajan user
+mysql -u sajan -p
+enter password
+show databases;
+exit
+
+#Restart Mariadb Service
+systemctl restart mariadb
+#Created by Sajan Kumar Tak ,Email : sktak100@gmail.com Mo: 6375246288
+-------------------------------------------------------------------------------------
